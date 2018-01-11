@@ -142,3 +142,7 @@ Logs at the corresponding logging level.
     logger.logAt(level:number, ...messages)
     
 Logs messages at the provided level.
+
+    logger.willLog(level):boolean
+    
+Indicates if the given level would log.
