@@ -9,7 +9,7 @@ Provides a singleton which can easily be used in any module in your project.
     import logger from 'xazure-logger';
     import consoleLogger from 'xazure-logger-module-console';
     
-    logger.configure({ plugins: [consoleLogger] });
+    logger.configure({ modules: [consoleLogger] });
     logger.log('Hello World');
     
 ## Modules
@@ -83,7 +83,7 @@ manually.
 
      // Defaults
      {
-       plugins: []
+       modules: []
        level: Levels.VERBOSE
      }
      

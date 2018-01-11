@@ -7,17 +7,17 @@ export const Levels = {
 };
 
 export const getDefaultConfig = () => ({
-  level: Levels.VERBOSE,
-  plugins: []
+  level: Levels.LOG,
+  modules: []
 });
 
 export const Logger = (initialConfig = {}) => {
-  let plugins = [];
   const config = Object.assign({}, getDefaultConfig(), initialConfig);
+  let modules = config.modules.map(m => m(config));
 
   const shouldLog = messageLevel => messageLevel >= config.level;
 
-  const log = (level, messages) => shouldLog(level) && plugins.forEach(p => p(level, messages));
+  const log = (level, messages) => shouldLog(level) && modules.forEach(m => m(level, messages));
 
   return {
     error(...messages) { log(Levels.ERROR, messages); },
@@ -28,7 +28,7 @@ export const Logger = (initialConfig = {}) => {
     logAt: (level, ...messages) => shouldLog(level) && console.log.apply(console, messages),
     configure(newConfig) {
       Object.assign(config, newConfig);
-      plugins = config.plugins.map(p => p(config))
+      modules = config.modules.map(m => m(config))
     }
   };
 };
