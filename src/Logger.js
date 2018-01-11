@@ -26,6 +26,7 @@ export const Logger = (initialConfig = {}) => {
     log(...messages) { log(Levels.LOG, messages); },
     debug(...messages) { log(Levels.DEBUG, messages); },
     logAt: (level, ...messages) => shouldLog(level) && console.log.apply(console, messages),
+    willLog: shouldLog,
     configure(newConfig) {
       Object.assign(config, newConfig);
       modules = config.modules.map(m => m(config))
