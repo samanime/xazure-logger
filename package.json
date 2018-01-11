@@ -2,7 +2,9 @@
   "name": "xazure-logger",
   "version": "0.1.4",
   "description": "An extensible, configurable logger.",
-  "main": "dist/index.js",
+  "main": "dist/main",
+  "module": "dist/module",
+  "jsnext:main": "dist/module",
   "author": "Christian Snodgrass <christian.snodgrass.open@gmail.com> (http://xazure.net)",
   "license": "MIT",
   "repository": {
