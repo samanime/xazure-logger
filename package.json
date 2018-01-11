@@ -1,6 +1,6 @@
 {
   "name": "xazure-logger",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "An extensible, configurable logger.",
   "main": "dist/main",
   "module": "dist/module",
